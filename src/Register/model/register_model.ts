@@ -7,7 +7,7 @@ export interface Enrollment {
   studentFirstName: string,
   studentLastName: string,
   studentGender: string,
-  stundentAge: string,
+  studentAge: number,
   nameOfSchool:string,
   studentClass:string,
   specialNeeds:string,

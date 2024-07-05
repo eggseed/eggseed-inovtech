@@ -1,4 +1,5 @@
 export enum InovtechRoutes {
-  getMenu = '/menu',
+  addEnrollement = '/enroll',
+  registration = '/register'
   
 }
