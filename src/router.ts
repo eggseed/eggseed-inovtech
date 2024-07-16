@@ -1,19 +1,16 @@
 import {RouterFactory, errorHandler, firebaseAdmin} from '@eggseed/server';
-
-import {EntitiesFactory} from './factory';
 import {InovtechRoutes} from './routes';
+import { EnrollmentController } from './Register/controllers/register_controller';
 
 
 
 const v1SecureRouter = RouterFactory.secure(firebaseAdmin);
 const v1PublicRouter = RouterFactory.public();
 
-// /**
-//  * A route to handle adding of menu
-//  *
-//  */
 
 
+v1PublicRouter.post(InovtechRoutes.addEnrollement, EnrollmentController.addEnrollement)
+v1PublicRouter.post(InovtechRoutes.registration, EnrollmentController.addRegistration)
 
 v1SecureRouter.use(errorHandler);
 v1PublicRouter.use(errorHandler);

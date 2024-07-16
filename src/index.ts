@@ -44,33 +44,69 @@ app.listen(process.env.PORT || 7080, () => {
       ];
 
       // Define parameters for different POST requests
-      if (spec.paths['/api/v1/contact']) {
-        spec.paths['/api/v1/contact'].post.parameters = [
+      if (spec.paths['/api/v1/register']) {
+        spec.paths['/api/v1/register'].post.parameters = [
           {
             name: 'body',
             in: 'body',
-            description: 'The request body for contact',
+            description: 'The request body for registration',
             required: true,
             schema: {
               type: 'object',
               properties: {
-                name: {
+                firstName: {
                   type: 'string',
-                  description: 'name',
+                  description: 'First name of the registrant',
+                },
+                lastName: {
+                  type: 'string',
+                  description: 'Last name of the registrant',
                 },
                 email: {
                   type: 'string',
-                  description: 'email',
+                  description: 'Email address of the registrant',
                 },
-                phoneNumber: {
+                contact: {
                   type: 'string',
-                  description: 'phone number',
+                  description: 'Contact number of the registrant',
                 },
-                message: {
+                organizationName: {
                   type: 'string',
-                  description: 'message',
+                  description: 'Name of the organization',
                 },
-                // Add more fields as needed for route1
+                location: {
+                  type: 'string',
+                  description: 'Location of the event',
+                },
+                region: {
+                  type: 'string',
+                  description: 'Region of the event',
+                },
+                participantsNumber: {
+                  type: 'integer',
+                  description: 'Number of participants',
+                },
+                startDate: {
+                  type: 'string',
+                  format: 'date-time',
+                  description: 'Start date of the event',
+                },
+                electricityAccess: {
+                  type: 'boolean',
+                  description: 'Whether electricity access is available',
+                },
+                laptopAccess: {
+                  type: 'boolean',
+                  description: 'Whether laptop access is available',
+                },
+                projectorAccess: {
+                  type: 'boolean',
+                  description: 'Whether projector access is available',
+                },
+                accommodationAvailable: {
+                  type: 'boolean',
+                  description: 'Whether accommodation is available',
+                },
               },
             },
           },
@@ -78,7 +114,7 @@ app.listen(process.env.PORT || 7080, () => {
       }
 
       if (spec.paths['/api/v1/enroll']) {
-        spec.paths['/api/v1/reservations'].post.parameters = [
+        spec.paths['/api/v1/enroll'].post.parameters = [
           {
             name: 'body',
             in: 'body',
@@ -87,54 +123,66 @@ app.listen(process.env.PORT || 7080, () => {
             schema: {
               type: 'object',
               properties: {
-                fullName: {
+                parentFirstName: {
                   type: 'string',
-                  description: 'Full Name',
+                  description: 'First Name',
+                },
+
+                parentLastName: {
+                  type: 'string',
+                  description: 'Last Name',
                 },
                 email: {
                   type: 'string',
                   format: 'email',
                   description: 'Email',
                 },
-                phoneNumber: {
+                contact: {
                   type: 'string',
-                  description: 'Phone Number',
+                  description: 'contact',
                 },
-                date: {
+
+                studentFirstName: {
                   type: 'string',
-                  format: 'date',
-                  description: 'Date',
+                  description: 'First Name',
                 },
-                timeIn: {
+
+               studentLastName: {
                   type: 'string',
-                  format: 'time',
-                  description: 'Time In',
+                  description: 'Last Name',
                 },
-                timeOut: {
+                
+
+                studentGender: {
                   type: 'string',
-                  format: 'time',
-                  description: 'Time Out',
+                  description: 'Gender',
                 },
-                numberOfGuest: {
-                  type: 'integer',
-                  description: 'Number of Guests',
+
+                studentAge: {
+                  type: 'number',
+                  description: 'Age',
                 },
-                occasion: {
+
+                nameOfSchool: {
                   type: 'string',
-                  description: 'Occasion',
+                  description: 'Name of school',
                 },
-                message: {
+
+                studentClass: {
                   type: 'string',
-                  description: 'Message',
+                  description: 'Class',
                 },
-                tables: {
-                  type: 'array',
-                  items: {
-                    type: 'string',
-                  },
-                  description: 'Tables',
+
+                specialNeeds: {
+                  type: 'string',
+                  description: 'Special needs',
                 },
-                // Add more fields specific to route2 if needed
+
+                needType: {
+                  type: 'string',
+                  description: ' needs type',
+                },
+                
               },
             },
           },
